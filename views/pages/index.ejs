@@ -1,0 +1,82 @@
+<% include ../partials/header %>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Jumbotron Header -->
+        <header class="jumbotron hero-spacer">
+            <h1>Projects!</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa, ipsam, eligendi, in quo sunt possimus non incidunt odit vero aliquid similique quaerat nam nobis illo aspernatur vitae fugiat numquam repellat.</p>
+            <a class="btn btn-primary btn-large" href="add">Add New Project</a>
+            </p>
+        </header>
+
+        <hr>
+
+        <!-- Title -->
+        <div class="container tit-bot">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Latest Projects</h3>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Page Features -->
+        <div class="container">
+        <div class="row text-center">
+            <% info.forEach(function(value){ %>
+            <div class="col-md-4 col-sm-12 hero-feature">
+                <div class="thumbnail">
+                       <div class="caption">
+                        <h3><%= value.title %></h3>
+                        <ul>
+                           <% value.tasks.forEach(function(task){ %>
+                             <li><%= task.item %></li>
+                           <%});%>
+                       </ul>
+                       <p>id: <%= value._id %></p>
+
+
+
+                            <a href="/api/<%= value._id %>" class="btn btn-info">EDIT</a>
+
+                            <form action="/api/<%= value._id %>?_method=DELETE" method="POST" >
+                                  <button type="submit" class="btn btn-danger">DELETE</button>
+                            </form>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <% })%>
+
+        </div>
+        </div>
+        <!-- /.row -->
+
+        <hr>
+
+        <!-- Footer -->
+        <div class="container">
+
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; React Project 2018</p>
+                </div>
+            </div>
+        </footer>
+        </div>
+</div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

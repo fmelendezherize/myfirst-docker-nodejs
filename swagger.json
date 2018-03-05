@@ -1,0 +1,41 @@
+{
+  "swagger": "2.0",
+
+  "info": {
+    "version": "1.0.0",
+    "title": "React Api",
+    "description": "Express Rest for React App"
+  },
+  "host": "http://localhost:3000/api",
+  "paths": {
+    "/": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "successfully got info",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "tasks": [{
+                  "item": "String"
+                }],
+                "createdAt": {
+                  "type": "Date",
+                  "default": "Date.now"
+                }
+              }
+            }
+          }
+        }
+      },
+      "produces": ["application/json"],
+      "schemes": [
+        "https"
+      ]
+
+    }
+  }
+}
